@@ -1,0 +1,42 @@
+<div class="card" [ngClass]="types[data.type.id]">
+    <div class="content">
+        <figure *ngIf="data.type.id !== types.double && data.type.id !== types.offer">
+            <img src="{{storage + data.image}}" />
+        </figure>
+        <div class="wrap">
+            <h3>
+                <i *ngIf="data.type.id === types.double || data.type.id === types.offer" class="icon icon-ticket"></i>
+                <span>{{data.title | translate}}</span>
+            </h3>
+            <div class="info-wrap">
+                <ng-container *ngIf="data.phoneInfo">
+                    <span *ngFor="let item of data.phoneInfo" class="info">{{item | translate}}</span>
+                </ng-container>
+                <span *ngIf="data.internetSpeed" class="info">{{data.internetSpeed | translate}}</span>
+                <span *ngIf="data.tvInfo" class="info tv-info">{{data.tvInfo | translate}}</span>
+            </div>
+            <div *ngIf="data.type.id === types.tv || data.type.id === types.double || data.type.id === types.offer"
+                class="price">
+                <span class="price-total">
+                    <span>{{data.new_price || data.price}}</span>
+                    <i class="icon icon-gel"></i>
+                </span>
+                <span *ngIf="data.sale" class="price-save">დაზოგე {{data.sale}}%</span>
+            </div>
+            <span *ngIf="data.type.id !== types.telephone" class="install"><span>{{"ინსტალაცია" | translate}}</span> - {{data.install}}₾</span>
+        </div>
+        <div class="wrap">
+            <div *ngIf="data.type.id === types.internet" class="price">
+                <span class="price-total">
+                    <span>{{data.new_price || data.price}}</span>
+                    <i class="icon icon-gel"></i>
+                </span>
+                <span *ngIf="data.sale" class="price-save">დაზოგე {{data.sale}}%</span>
+            </div>
+            <div class="actions">
+                <a class="tv-list" *ngIf="data.channels" (click)="openModal()">{{"არხების ჩამონათვალი" | translate}}</a>
+                <a class="order" [routerLink]="['/', 'order', data.type.slug, data.id]">{{"პაკეტის შეძენა" | translate}}</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="content">
+    <div class="top-part">
+        <i class="icon icon-close" (click)="close()"></i>
+        <h3>არხების ჩამონათვალი</h3>
+        <div class="select" (clickOutside)="closeSelect()">
+            <span class="current" (click)="toggleSelect()">
+                <span>{{activeCategory.name | translate}}</span>
+                <i class="icon icon-arrow-down"></i>
+            </span>
+            <div class="options" [ngClass]="{active: isOpen}">
+                <span *ngFor="let item of categories" (click)="setActive(item)"
+                    [ngClass]="{active: activeCategory.id === item.id}">{{item.name | translate}}</span>
+            </div>
+        </div>
+        <div class="scrolWrap">
+            <ng-scrollbar #scrollbarRef track="vertical" pointerEventsMethod="scrollbar">
+                <div class="channels">
+                    <div class="item" *ngFor="let item of channels">
+                        <figure>
+                            <img src="{{storage + item.image}}" alt="{{item.name}}">
+                        </figure>
+                        <span>{{item.name | translate}}</span>
+                    </div>
+                </div>
+            </ng-scrollbar>
+        </div>
+    </div>
+    <button class="close" (click)="close()">დახურვა</button>
+</div>

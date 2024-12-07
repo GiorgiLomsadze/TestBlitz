@@ -1,0 +1,29 @@
+<aside>
+    <div class="fixed">
+        <a class="logo" routerLink="/">
+            <i class="icon icon-logo"></i>
+        </a>
+        <nav>
+            <a routerLink="profile/cabinet" routerLinkActive="active">
+                <i class="icon icon-home"></i>
+                <span>{{ "პირადი კაბინეტი" | translate}}</span>
+            </a>
+            <a routerLink="profile/offers" routerLinkActive="active">
+                <i class="icon icon-gift"></i>
+                <span>{{ "უახლესი აქციები" | translate}}</span>
+            </a>
+            <a routerLink="profile/packages" routerLinkActive="active">
+                <i class="icon icon-plus-square"></i>
+                <span>{{ "ყველა პაკეტი" | translate}}</span>
+            </a>
+            <a routerLink="profile/options" routerLinkActive="active">
+                <i class="icon icon-settings"></i>
+                <span>{{ "პარამეტრები" | translate}}</span>
+            </a>
+            <a class="logout" (click)="logout()">
+                <i class="icon icon-power"></i>
+                <span>{{ "გასვლა" | translate}}</span>
+            </a>
+        </nav>
+    </div>
+</aside>

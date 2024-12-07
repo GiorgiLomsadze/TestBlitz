@@ -1,0 +1,103 @@
+<section class="container">
+    <h1>{{title | translate}}</h1>
+    <div class="navigation">
+        <nav>
+            <a *ngFor="let item of menu" [routerLink]="getLink(item)" routerLinkActive="active">{{item.name | translate}}</a>
+        </nav>
+    </div>
+    <div class="list" *ngIf="!(activeSlug) || activeSlug.id">
+        <app-card *ngFor="let item of activeProducts" [data]="item"></app-card>
+    </div>
+    <div class="calls" *ngIf="activeSlug && activeSlug.slug === 'calls'">
+        <h3>{{"მოძებნე ტარიფი ქვეყნის მიხედვით" | translate}}</h3>
+        <div class="wrap">
+            <div class="select" (clickOutside)="closeSelect('isOpen')">
+                <span class="current" (click)="isOpen = !isOpen">
+                    <span>{{activeCalls.country?.name || 'აირჩიე ქვეყანა' | translate}}</span>
+                    <i class="icon icon-arrow-down"></i>
+                </span>
+                <div class="options" [ngClass]="{active: isOpen}">
+                    <ng-scrollbar #scrollbarRef track="vertical" pointerEventsMethod="scrollbar">
+                        <span *ngFor="let item of countries" (click)="setCountry(item)"
+                            [ngClass]="{active: activeCalls.country?.home.code === item.home?.code}">{{item.name}}</span>
+                    </ng-scrollbar>
+                </div>
+            </div>
+            <div class="select" (clickOutside)="closeSelect('isCityOpen')" [ngClass]="{disabled: !(cities.length)}">
+                <span class="current" (click)="isCityOpen = !isCityOpen">
+                    <span>{{activeCalls.city?.name || 'აირჩიე ქალაქი' | translate}}</span>
+                    <i class="icon icon-arrow-down"></i>
+                </span>
+                <div class="options" [ngClass]="{active: isCityOpen}">
+                    <ng-scrollbar #scrollbarRef track="vertical" pointerEventsMethod="scrollbar">
+                        <span *ngFor="let item of cities" (click)="activeCalls.city = item; isCityOpen = false"
+                            [ngClass]="{active: activeCalls.city?.home.code === item.home?.code}">{{item.name}}</span>
+                    </ng-scrollbar>
+                </div>
+            </div>
+        </div>
+        <div class="price" *ngIf="activeCalls.country">
+            <div class="item tel">
+                <div class="content">
+                    <div class="top">
+                        <h3>{{'სახლის ტელეფონი' | translate}}</h3>
+                        <span class="how">{{'როგორ დავრეკო?' | translate}}</span>
+                        <span class="code">
+                            {{activeCalls.country.home.code}}
+                            ({{activeCalls.city?.home.code || 'ქალაქის კოდი' | translate}}) {{'აბონენტის ნომერი' | translate}}
+                        </span>
+                    </div>
+                    <div class="bottom">
+                        <span class="tr">{{'ტარიფი' | translate}}</span>
+                        <div class="pr">
+                            <strong>{{activeCalls.city?.home.price || activeCalls.country.home.price}}</strong>
+                            <i class="icon icon-gel"></i> {{'/ წთ' | translate}}
+                        </div>
+                    </div>
+                </div>
+                <figure>
+                    <img src="/assets/images/tel_bg.jpg" alt="CGC Phone">
+                </figure>
+            </div>
+            <div class="item mobile"
+                *ngIf="activeCalls.city?.mobilePhone.price || activeCalls.country.mobilePhone.price">
+                <div class="content">
+                    <div class="top">
+                        <h3>{{'მობილური ტელეფონი' | translate}}</h3>
+                        <span class="how">{{'როგორ დავრეკო?' | translate}}</span>
+                        <span class="code">
+                            {{activeCalls.country.mobilePhone.code}}
+                            ({{activeCalls.city?.mobilePhone.code || 'ქალაქის კოდი' | translate}}) {{'აბონენტის ნომერი' | translate}}
+                        </span>
+                    </div>
+                    <div class="bottom">
+                        <span class="tr">{{'ტარიფი' | translate}}</span>
+                        <div class="pr">
+                            <strong>{{activeCalls.city?.mobilePhone.price || activeCalls.country.mobilePhone.price}}</strong>
+                            <i class="icon icon-gel"></i> {{'/ წთ' | translate}}
+                        </div>
+                    </div>
+                </div>
+                <figure>
+                    <img src="/assets/images/mobile_bg.jpg" alt="CGC Phone">
+                </figure>
+            </div>
+        </div>
+    </div>
+    <div class="internet-options" *ngIf="activeSlug && activeSlug.slug === 'options'">
+        <h3>{{"დანართი ხელშეკრულებაზე" | translate}}</h3>
+        <p>{{"ინტერნეტ მომსახურების პარამეტრები, მომსახურების ტიპისა და პაკეტების მიხედვით:" | translate}}</p>
+        <ng-container *ngFor="let package of internetOptions?.packages">
+            <div class="scrolWrap" *ngIf="package.prodcuts?.length">
+                <ng-scrollbar #scrollbarRef track="horizontal" pointerEventsMethod="scrollbar">
+                    <table>
+                        <tr *ngFor="let item of internetOptionsColumns; let i = index">
+                            <td>{{i === 0 ? package.name : internetOptionsRows[i] | translate}}</td>
+                            <td *ngFor="let product of package.prodcuts">{{product[item] | translate}}</td>
+                        </tr>
+                    </table>
+                </ng-scrollbar>
+            </div>
+        </ng-container>
+    </div>
+</section>

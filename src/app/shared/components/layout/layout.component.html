@@ -1,0 +1,8 @@
+<main [ngClass]="{landing: isHome | async}">
+    <app-sidebar *ngIf="isProfile | async"></app-sidebar>
+    <div class="content">
+        <app-header></app-header>
+        <router-outlet></router-outlet>
+    </div>
+</main>
+<app-footer></app-footer>

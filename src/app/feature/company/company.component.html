@@ -1,0 +1,16 @@
+<section class="container">
+    <h1>{{"იურიდიული კლიენტებისთვის" | translate}}</h1>
+    <div class="list">
+        <div class="item" *ngFor="let item of companies">
+            <div class="company">
+                <h3 class="title">{{item.title | translate}}</h3>
+                <span class="info">{{item.info | translate}}</span>
+                <span class="price-wrap">
+                    <span class="price">{{item.price}}</span>
+                    <i class="icon icon-gel"></i>
+                    <span class="range">{{"/ თვე" | translate}}</span>
+                </span>
+            </div>
+        </div>
+    </div>
+</section>

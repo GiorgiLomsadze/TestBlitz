@@ -1,0 +1,25 @@
+<section class="container">
+    <h1>{{"ავტორიზაცია" | translate}}</h1>
+    <div class="block">
+        <span class="icon-wrap">
+            <i class="icon icon-user"></i>
+        </span>
+        <h3>{{"ავტორიზაციის გასავლელად შეიყვანეთ " | translate}}<br>{{"მომხმარებლის ნომერი და პაროლი" | translate}}</h3>
+        <div class="form" [formGroup]="form">
+            <mat-form-field appearance="fill">
+                <mat-label>{{"აბონენტის ნომერი..." | translate}}</mat-label>
+                <input matInput formControlName="clientId">
+                <mat-error>{{getErrorMessage('clientId') | translate}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>{{"პაროლი..." | translate}}</mat-label>
+                <input matInput autocomplete="off" type="password" formControlName="password">
+                <mat-error>{{getErrorMessage('password') | translate}}</mat-error>
+            </mat-form-field>
+            <a routerLink="/register" class="recover">{{"დაგავიწყდათ პაროლი?" | translate}}</a>
+            <button class="submit" (click)="submit()">{{"შესვლა" | translate}}</button>
+        </div>
+        <span class="info">{{"არ ხარ რეგისტრირებული?" | translate}}</span>
+        <a routerLink="/register" class="login">{{"რეგისტრაცია" | translate}}</a>
+    </div>
+</section>

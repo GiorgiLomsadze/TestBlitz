@@ -1,0 +1,284 @@
+@import "src/styles/variables";
+
+section {
+    display: flex;
+    flex-direction: column;
+    margin: 70px 0 100px;
+
+    @include md {
+        margin: 60px 0 100px;
+    }
+
+    @include sm {
+        margin: 45px 0 70px;
+    }
+
+    h3.title {
+        font-size: 36px;
+        color: #ffffff;
+        margin-bottom: 30px;
+
+        @include useCaps;
+
+        @include sm {
+            margin-bottom: 20 px;
+            font-size: 24px;
+        }
+    }
+
+    .back {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        color: #ffffff;
+        margin-bottom: 30px;
+
+        @include sm {
+            margin-bottom: 20px;
+            font-size: 12px;
+        }
+
+        i {
+            font-size: 15px;
+            line-height: 0;
+            margin-right: 30px;
+            padding: 0 18px;
+            color: #0099ff;
+
+            @include md {
+                margin-right: 10px;
+            }
+
+            @include sm {
+                padding: 0;
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .single {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 30px;
+        margin-bottom: 100px;
+
+        @include md {
+            display: flex;
+            flex-direction: column;
+            grid-gap: 40px;
+        }
+
+        @include sm {
+            grid-gap: 20px;
+        }
+
+        figure {
+            grid-column: span 5;
+
+            img {
+                width: 100%;
+                height: 520px;
+                object-fit: cover;
+
+                @include md {
+                    height: 200px;
+                }
+
+                @include sm {
+                    height: 150px;
+                }
+            }
+        }
+
+        .content {
+            grid-column: span 7;
+
+            .date {
+                display: inline-block;
+                font-size: 12px;
+                color: #ffffff;
+                margin-bottom: 15px;
+
+                @include useCaps;
+            }
+
+            h1 {
+                color: #ffffff;
+                font-size: 26px;
+                line-height: 35px;
+                margin-bottom: 20px;
+
+                @include useCaps;
+
+                @include md {
+                    font-size: 24px;
+                    line-height: 33px;
+                }
+
+                @include sm {
+                    font-size: 18px;
+                    line-height: 25px;
+                }
+            }
+
+            p {
+                color: #ffffff;
+                font-size: 18px;
+                line-height: 28px;
+                margin-bottom: 30px;
+                white-space: break-spaces;
+
+                @include sm {
+                    font-size: 14px;
+                }
+            }
+
+            .social {
+                display: flex;
+
+                button {
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #ffffff;
+                    text-decoration: none;
+                    background-color: transparent;
+                    width: 50px;
+                    height: 50px;
+                    border: 1px solid rgba(#3da5d8, 0.5);
+                    border-radius: 6px;
+                    margin-right: 30px;
+                    box-shadow: 0 10px 10px rgba(#000000, 0.075);
+                    transition: all 0.2s;
+
+                    &:hover {
+                        color: #ffd308;
+                        border-color: #ffd308;
+                    }
+
+                    &:last-of-type {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .more {
+        color: #ffffff;
+        font-size: 26px;
+        margin-bottom: 40px;
+
+        @include useCaps;
+
+        @include md {
+            margin-bottom: 30px;
+        }
+
+        @include sm {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 -15px;
+        margin-bottom: 50px;
+
+        @include sm {
+            margin-bottom: 0;
+        }
+
+        .item {
+            width: (100% / 3);
+            flex-shrink: 0;
+            padding: 0 15px;
+            box-sizing: border-box;
+            margin-bottom: 30px;
+
+            @include md {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    a.news {
+        display: block;
+        background-color: rgba(#0a6b98, 0.6);
+        border-radius: 10px;
+        overflow: hidden;
+        text-decoration: none;
+        height: 100%;
+        transition: background 0.2s;
+
+        &:hover {
+            background-color: #0a6b98;
+        }
+
+        figure {
+            img {
+                width: 100%;
+                height: 330px;
+                object-fit: cover;
+
+                @include sm {
+                    height: 120px;
+                }
+            }
+        }
+
+        .content {
+            padding: 30px 30px 40px;
+
+            @include sm {
+                padding: 20px 30px 30px;
+            }
+
+            .date {
+                display: block;
+                font-size: 12px;
+                color: #ffffff;
+                margin-bottom: 25px;
+
+                @include useCaps;
+
+                @include sm {
+                    margin-bottom: 20px;
+                }
+            }
+
+            h3 {
+                color: #ffffff;
+                font-size: 22px;
+                line-height: 29px;
+                margin-bottom: 15px;
+
+                @include useCaps;
+
+                @include sm {
+                    font-size: 16px;
+                    line-height: 22px;
+                    margin-bottom: 10px;
+                }
+            }
+
+            p {
+                font-size: 18px;
+                line-height: 28px;
+                color: #99aab6;
+                height: 58px;
+                overflow: hidden;
+
+                @include sm {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}

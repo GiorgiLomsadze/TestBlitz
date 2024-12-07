@@ -1,0 +1,40 @@
+.mat-form-field-appearance-fill {
+    .mat-form-field-flex {
+        background-color: #09425f;
+        border-radius: 10px 10px 0 0 !important;
+    }
+
+    .mat-form-field-underline::before {
+        background-color: #3da5d8;
+        height: 2px !important;
+    }
+}
+
+.mat-input-element {
+    color: #ffffff !important;
+}
+
+.mat-form-field-label,
+.mat-form-field.mat-focused .mat-form-field-label {
+    color: rgba(#ffffff, 0.6);
+}
+
+.mat-form-field-ripple,
+.mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: #ffd308;
+}
+
+.mat-form-field-subscript-wrapper {
+    margin-top: 3px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}

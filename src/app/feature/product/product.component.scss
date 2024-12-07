@@ -1,0 +1,437 @@
+@import "src/styles/variables";
+
+section {
+    margin: 70px 0 100px;
+
+    @include md {
+        margin: 60px 0 100px;
+    }
+
+    @include sm {
+        margin: 45px 0 70px;
+    }
+
+    h1 {
+        font-size: 36px;
+        color: #ffffff;
+        margin-bottom: 40px;
+
+        @include useCaps;
+
+        @include md {
+            margin-bottom: 80px;
+        }
+
+        @include sm {
+            margin-bottom: 35px;
+            font-size: 24px;
+        }
+    }
+
+    .navigation {
+        margin-bottom: 40px;
+        border-bottom: 1px solid #0a6b98;
+
+        @include md {
+            margin-bottom: 50px;
+        }
+
+        @include sm {
+            margin-bottom: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+
+            @include md {
+                justify-content: flex-start;
+                overflow-x: scroll;
+            }
+
+            a {
+                position: relative;
+                color: rgba(#fefefe, 0.6);
+                padding-bottom: 25px;
+                font-size: 18px;
+                text-decoration: none;
+                margin-right: 100px;
+                white-space: nowrap;
+                transition: color 0.2s;
+
+                @include useCaps;
+
+                @include md {
+                    text-align: center;
+                    line-height: 1.5;
+                    margin-right: 30px;
+                    padding-bottom: 20px;
+                    font-size: 14px;
+                }
+
+                @include sm {
+                    margin-right: 20px;
+                    padding-bottom: 10px;
+                    font-size: 14px;
+                }
+
+                &:last-of-type {
+                    margin-right: 0;
+                }
+
+                &::before {
+                    content: "";
+                    border-radius: 100px;
+                    position: absolute;
+                    display: block;
+                    opacity: 0;
+                    bottom: -2.5px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 30px;
+                    height: 4px;
+                    background-color: #3da5d8;
+                    transition: opacity 0.2s;
+
+                    @include md {
+                        bottom: 0;
+                    }
+                }
+
+                &:hover,
+                &.active {
+                    color: #fefefe;
+
+                    &::before {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    .list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 -15px;
+
+        app-card {
+            width: 25%;
+            flex-shrink: 0;
+            padding: 0 15px;
+            box-sizing: border-box;
+            margin-bottom: 30px;
+
+            @include xl {
+                width: (100% / 3);
+            }
+
+            @include md {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+.calls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h3 {
+        font-size: 16px;
+        margin-bottom: 30px;
+        color: #ffffff;
+
+        @include useCaps;
+
+        @include md {
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        @include sm {
+            font-size: 14px;
+        }
+    }
+
+    .wrap {
+        display: flex;
+
+        @include md {
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+        }
+    }
+
+    .price {
+        display: flex;
+
+        @include md {
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            width: 525px;
+            height: 400px;
+            background-color: #0a6b98;
+            border-radius: 10px;
+            overflow: hidden;
+
+            @include md {
+                width: 100%;
+                max-width: 612px;
+            }
+
+            @include sm {
+                height: 300px;
+            }
+
+            &:first-of-type {
+                margin-right: 30px;
+
+                @include md {
+                    margin-right: 0;
+                    margin-bottom: 20px;
+                }
+            }
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 75px 20px 75px 30px;
+                color: #ffffff;
+
+                @include sm {
+                    padding: 30px 20px;
+                }
+
+                .top {
+                    display: flex;
+                    flex-direction: column;
+
+                    h3 {
+                        font-size: 22px;
+                        margin-bottom: 40px;
+                        line-height: 29px;
+
+                        @include useCaps;
+
+                        @include sm {
+                            margin-bottom: 20px;
+                            text-align: left;
+                        }
+                    }
+
+                    .how {
+                        font-size: 14px;
+                        margin-bottom: 10px;
+
+                        @include useCaps;
+                    }
+
+                    .code {
+                        font-size: 14px;
+                        line-height: 27px;
+                    }
+                }
+
+                .bottom {
+                    display: flex;
+                    flex-direction: column;
+
+                    .tr {
+                        font-size: 14px;
+                        margin-bottom: 10px;
+
+                        @include useCaps;
+                    }
+
+                    .pr {
+                        @include useCaps;
+
+                        strong {
+                            font-size: 43px;
+                            color: #ffd308;
+                            -webkit-text-stroke: 1px #ffd308;
+                            margin-right: 10px;
+                        }
+
+                        i {
+                            font-size: 20px;
+                        }
+                    }
+                }
+            }
+
+            figure {
+                @include sm {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.scrolWrap {
+    width: 100%;
+}
+
+.internet-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h3 {
+        font-size: 16px;
+        margin-bottom: 30px;
+        color: #ffffff;
+
+        @include useCaps;
+
+        @include md {
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        @include sm {
+            font-size: 14px;
+        }
+    }
+
+    p {
+        font-size: 14px;
+        margin-bottom: 30px;
+        color: #ffffff;
+        line-height: 18px;
+    }
+
+    table {
+        border-top: 1px solid #3da5d8;
+        border-bottom: 1px solid #3da5d8;
+        margin: 0 auto 15px;
+
+        tr {
+            &:nth-of-type(even) {
+                td {
+                    background-color: #3da5d8;
+                }
+            }
+
+            &:nth-of-type(odd) {
+                td {
+                    background-color: #0f4d83;
+                }
+            }
+        }
+
+        td {
+            color: #ffffff;
+            padding: 10px;
+            font-size: 14px;
+            line-height: 18px;
+            vertical-align: middle;
+
+            &:first-of-type {
+                font-weight: bold;
+
+                @include useCaps;
+
+                @include md {
+                    width: 120px;
+                    left: 0px;
+                    position: sticky;
+                }
+            }
+        }
+    }
+}
+
+div.select {
+    position: relative;
+    margin-bottom: 50px;
+    width: 390px;
+
+    @include xl {
+        margin-bottom: 30px;
+    }
+
+    @include sm {
+        width: 100%;
+    }
+
+    &:first-of-type {
+        margin-right: 15px;
+
+        @include md {
+            margin-right: 0;
+        }
+    }
+
+    &.disabled {
+        pointer-events: none;
+        opacity: 0.6;
+    }
+
+    span.current {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        padding: 25px 20px;
+        width: 100%;
+        background-color: #09425f;
+        border-radius: 10px 10px 0 0;
+        font-size: 14px;
+        box-sizing: border-box;
+        border-bottom: 2px solid #3da5d8;
+
+        span {
+            color: #ffffff;
+        }
+
+        i {
+            color: #3da5d8;
+        }
+    }
+}
+
+div.options {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 67px;
+    width: 100%;
+    height: calc(90vh - 300px);
+    max-height: 380px;
+    z-index: 1;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+
+    &.active {
+        display: flex;
+    }
+
+    span {
+        cursor: pointer;
+        display: flex;
+        background-color: #09425f;
+        transition: all 0.2s;
+        padding: 12px 20px;
+        color: #ffffff;
+        margin-bottom: -1px;
+        transition: all 0.2s;
+
+        &.active,
+        &:hover {
+            background-color: #092946;
+        }
+    }
+}

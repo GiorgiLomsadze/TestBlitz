@@ -1,0 +1,244 @@
+@import "src/styles/variables";
+
+div.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 1000px;
+
+    @include xl {
+        width: 80vw;
+    }
+
+    @include md {
+        width: 100%;
+        height: 100%;
+        justify-content: space-between;
+    }
+
+    .top-part {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .icon-close {
+        cursor: pointer;
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        font-size: 35px;
+        color: rgba(#ffffff, 0.6);
+        line-height: 1;
+    }
+
+    h3 {
+        color: #ffffff;
+        font-size: 26px;
+        margin-bottom: 20px;
+
+        @include useCaps;
+
+        @include lg {
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+
+        @include md {
+            margin-bottom: 30px;
+        }
+    }
+
+    div.select {
+        position: relative;
+        margin-bottom: 50px;
+
+        @include xl {
+            margin-bottom: 30px;
+        }
+
+        @include sm {
+            width: 100%;
+        }
+
+        span.current {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            width: 390px;
+            padding: 25px 20px;
+            background-color: #09425f;
+            border-radius: 10px 10px 0 0;
+            font-size: 14px;
+            box-sizing: border-box;
+            border-bottom: 2px solid #3da5d8;
+
+            @include sm {
+                width: 100%;
+            }
+
+            span {
+                color: #ffffff;
+            }
+
+            i {
+                color: #3da5d8;
+            }
+        }
+    }
+
+    div.options {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        width: 100%;
+        z-index: 1;
+        border-radius: 0 0 10px 10px;
+        overflow: hidden;
+
+        &.active {
+            display: flex;
+        }
+
+        span {
+            cursor: pointer;
+            display: flex;
+            background-color: #09425f;
+            transition: all 0.2s;
+            padding: 10px 15px;
+            color: #ffffff;
+            margin-bottom: -1px;
+            transition: all 0.2s;
+
+            &.active,
+            &:hover {
+                background-color: #092946;
+            }
+        }
+    }
+
+    div.scrolWrap {
+        width: 100%;
+        height: calc(90vh - 300px);
+        max-height: 380px;
+        margin-bottom: 50px;
+        padding: 0 0 0 20px;
+
+        @include xl {
+            padding: 0;
+            margin-bottom: 30px;
+            height: calc(90vh - 260px);
+        }
+
+        @include md {
+            max-height: calc(90vh - 200px);
+            height: 100%;
+        }
+    }
+
+    ng-scrollbar {
+        --scrollbar-thumb-color: #3da5d8;
+        --scrollbar-thumb-hover-color: #3da5d8;
+        --scrollbar-border-radius: 6px;
+        --scrollbar-size: 4px;
+        --scrollbar-padding: 8px;
+
+        ::ng-deep {
+            .ng-scrollbar-track {
+                background-color: rgba(#3da5d8, 0.6);
+                overflow: initial;
+            }
+
+            .ng-scrollbar-thumb {
+                margin-left: -1px;
+                width: 6px;
+            }
+        }
+    }
+
+    div.channels {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 20px;
+
+        @include lg {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include sm {
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: 10px;
+        }
+
+        .item {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+
+            figure {
+                display: flex;
+                flex-shrink: 0;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+                width: 60px;
+                height: 60px;
+                border: 1px solid #3da5d8;
+                padding: 8px;
+                border-radius: 5px;
+                margin-right: 20px;
+
+                @include md {
+                    width: 42px;
+                    height: 42px;
+                    padding: 4px;
+                    margin-right: 15px;
+                }
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            span {
+                font-size: 18px;
+                color: #ffffff;
+            }
+        }
+    }
+
+    button.close {
+        display: flex;
+        align-self: flex-end;
+        width: 200px;
+        height: 60px;
+        justify-content: center;
+        align-items: center;
+        font-size: 14px;
+        text-decoration: none;
+        outline: none;
+        border-radius: 0 10px 0 10px;
+        box-sizing: border-box;
+        box-shadow: 0 2px 10px rgba(#000000, 0.15);
+        border: 2px solid transparent;
+        opacity: 1;
+        color: #09425f;
+        background-color: #ffd308;
+        -webkit-text-stroke: 1px #09425f;
+        transition: background 0.2s;
+
+        @include useCaps;
+
+        &:hover {
+            background-color: darken(#ffd308, 8);
+        }
+
+        @include md {
+            align-self: center;
+        }
+    }
+}

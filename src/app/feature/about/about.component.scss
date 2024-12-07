@@ -1,0 +1,203 @@
+@import "src/styles/variables";
+
+section {
+    margin: 70px 0 100px;
+
+    @include md {
+        margin: 60px 0 100px;
+    }
+
+    @include sm {
+        margin: 45px 0 70px;
+    }
+
+    h1 {
+        font-size: 36px;
+        color: #ffffff;
+        margin-bottom: 40px;
+
+        @include useCaps;
+
+        @include md {
+            margin-bottom: 80px;
+        }
+
+        @include sm {
+            margin-bottom: 35px;
+            font-size: 24px;
+        }
+    }
+
+    .content {
+        display: grid;
+        grid-gap: 30px;
+        grid-template-columns: repeat(12, 1fr);
+
+        @include md {
+            display: flex;
+            flex-direction: column;
+        }
+
+        figure {
+            grid-column: span 5;
+            width: 100%;
+            height: 520px;
+
+            @include md {
+                height: 200px;
+            }
+
+            @include sm {
+                height: 150px;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .text {
+            grid-column: span 7;
+            padding: 15px 0;
+
+            @include md {
+                padding: 0;
+            }
+
+            p {
+                white-space: break-spaces;
+            }
+
+            .main-text {
+                font-size: 18px;
+                line-height: 28px;
+                color: #ffffff;
+                margin-bottom: 20px;
+
+                @include sm {
+                    font-size: 14px;
+                }
+            }
+
+            .sub-text {
+                color: rgba(#ffffff, 0.6);
+                font-size: 18px;
+                line-height: 32px;
+
+                @include sm {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    .list {
+        grid-column: 1 / -1;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 -15px;
+
+        .item {
+            width: 25%;
+            flex-shrink: 0;
+            padding: 0 15px;
+            box-sizing: border-box;
+            margin-bottom: 30px;
+
+            @include xl {
+                width: (100% / 3);
+            }
+
+            @include md {
+                width: 100%;
+            }
+        }
+    }
+
+    .document {
+        border-radius: 10px;
+        background-color: rgba(#0a6b98, 0.7);
+        padding: 30px 0 0 35px;
+        display: grid;
+        grid-gap: 30px;
+        grid-template-columns: 65px auto;
+        height: 100%;
+        box-sizing: border-box;
+
+        @include sm {
+            padding: 20px 0 0 20px;
+        }
+
+        i.ic-document {
+            display: block;
+            width: 65px;
+            height: 72px;
+            display: flex;
+            flex-shrink: 0;
+
+            &::after {
+                content: "";
+                background-image: url(/assets/svg/document.svg);
+                display: block;
+                flex: 1;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            h3 {
+                font-size: 12px;
+                color: #ffffff;
+                line-height: 20px;
+                padding-right: 20px;
+                margin-top: 0;
+
+                @include useCaps;
+
+                @include sm {
+                    margin-bottom: 5px;
+                }
+            }
+
+            div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .date {
+                    font-size: 12px;
+                    color: #3ca1d2;
+
+                    @include useCaps;
+
+                    @include sm {
+                        transform: translateY(-8px);
+                    }
+                }
+
+                a {
+                    font-size: 20px;
+                    line-height: 0;
+                    text-decoration: none;
+                    background-color: #ffd308;
+                    color: #09425f;
+                    border-radius: 10px;
+                    width: 80px;
+                    height: 60px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}

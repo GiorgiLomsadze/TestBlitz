@@ -1,0 +1,43 @@
+<section class="container">
+    <h3 class="title">{{title | translate}}</h3>
+    <a routerLink="/{{path}}" class="back">
+        <i class="icon icon-arrow-left"></i>
+        <span>{{"ბოლო" | translate}} {{title | translate}}</span>
+    </a>
+    <div class="single" *ngIf="single">
+        <figure>
+            <img src="{{storage + single.image}}" alt="{{single.tilte}}">
+        </figure>
+        <div class="content">
+            <span class="date">{{single.date | date:'dd MMMM, yyyy'}}</span>
+            <h1>{{single.tilte | translate}}</h1>
+            <p>{{single.text | trim | translate}}</p>
+            <div class="social">
+                <button shareButton="twitter">
+                    <i class="icon icon-twitter"></i>
+                </button>
+                <button shareButton="linkedin">
+                    <i class="icon icon-linkdin"></i>
+                </button>
+                <button shareButton="facebook">
+                    <i class="icon icon-facebook"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <h3 class="more">{{"სხვა" | translate}} {{title | translate}}</h3>
+    <div class="list">
+        <div class="item" *ngFor="let item of news">
+            <a routerLink="/{{path + '/' + item.id}}" class="news">
+                <figure>
+                    <img src="{{storage + item.image}}" alt="{{item.tilte}}">
+                </figure>
+                <div class="content">
+                    <span class="date">{{item.date | date:'dd MMMM, yyyy'}}</span>
+                    <h3>{{item.tilte | translate}}</h3>
+                    <p>{{item.text | trim | translate}}</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>

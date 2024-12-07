@@ -1,0 +1,267 @@
+.icon {
+    display: inline-block;
+    font: normal normal normal 1em/1 "CGC-Icons";
+    speak: none;
+    text-transform: none;
+    /* Better Font Rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/*------------------------
+    change icon size
+  -------------------------*/
+/* relative units */
+.icon-sm {
+    font-size: 0.8em;
+}
+.icon-lg {
+    font-size: 1.2em;
+}
+/* absolute units */
+.icon-16 {
+    font-size: 16px;
+}
+.icon-32 {
+    font-size: 32px;
+}
+/*----------------------------------
+    add a square/circle background
+  -----------------------------------*/
+.icon-bg-square,
+.icon-bg-circle {
+    padding: 0.35em;
+    background-color: #eee;
+}
+.icon-bg-circle {
+    border-radius: 50%;
+}
+/*------------------------------------
+    use icons as list item markers
+  -------------------------------------*/
+.icon-ul {
+    padding-left: 0;
+    list-style-type: none;
+}
+.icon-ul > li {
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.4;
+}
+.icon-ul > li > .icon {
+    margin-right: 0.4em;
+    line-height: inherit;
+}
+/*------------------------
+    spinning icons
+  -------------------------*/
+.icon-is-spinning {
+    -webkit-animation: icon-spin 2s infinite linear;
+    -moz-animation: icon-spin 2s infinite linear;
+    animation: icon-spin 2s infinite linear;
+}
+@-webkit-keyframes icon-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@-moz-keyframes icon-spin {
+    0% {
+        -moz-transform: rotate(0deg);
+    }
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+@keyframes icon-spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+/*------------------------
+    rotated/flipped icons
+  -------------------------*/
+.icon-rotate-90 {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+.icon-rotate-180 {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.icon-rotate-270 {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+.icon-flip-y {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+    -webkit-transform: scale(-1, 1);
+    -moz-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+}
+.icon-flip-x {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    -webkit-transform: scale(1, -1);
+    -moz-transform: scale(1, -1);
+    -ms-transform: scale(1, -1);
+    -o-transform: scale(1, -1);
+    transform: scale(1, -1);
+}
+/*------------------------
+	icons
+-------------------------*/
+
+.icon-alert::before {
+    content: "\ea02";
+}
+
+.icon-arrow-down::before {
+    content: "\ea04";
+}
+
+.icon-document::before {
+    content: "\ea05";
+}
+
+.icon-donwload::before {
+    content: "\ea06";
+}
+
+.icon-gel::before {
+    content: "\ea07";
+}
+
+.icon-email::before {
+    content: "\ea08";
+}
+
+.icon-facebook::before {
+    content: "\ea09";
+}
+
+.icon-gift::before {
+    content: "\ea0a";
+}
+
+.icon-globe::before {
+    content: "\ea0b";
+}
+
+.icon-home::before {
+    content: "\ea0c";
+}
+
+.icon-arrow-right::before {
+    content: "\ea0d";
+}
+
+.icon-login::before {
+    content: "\ea0f";
+}
+
+.icon-logo::before {
+    content: "\ea10";
+}
+
+.icon-phone-solid::before {
+    content: "\ea11";
+}
+
+.icon-person::before {
+    content: "\ea12";
+}
+
+.icon-phone::before {
+    content: "\ea13";
+}
+
+.icon-pin::before {
+    content: "\ea14";
+}
+
+.icon-plus-square::before {
+    content: "\ea15";
+}
+
+.icon-arrow-left::before {
+    content: "\ea16";
+}
+
+.icon-power::before {
+    content: "\ea17";
+}
+
+.icon-settings::before {
+    content: "\ea18";
+}
+
+.icon-tv::before {
+    content: "\ea1a";
+}
+
+.icon-twitter::before {
+    content: "\ea1b";
+}
+
+.icon-user::before {
+    content: "\ea1d";
+}
+
+.icon-close::before {
+    content: "\ea1e";
+}
+
+.icon-shield::before {
+    content: "\ea1f";
+}
+
+.icon-linkdin::before {
+    content: "\ea20";
+}
+
+.icon-check::before {
+    content: "\ea21";
+}
+
+.icon-user-add::before {
+    content: "\ea22";
+}
+
+.icon-list::before {
+    content: "\ea24";
+}
+
+.icon-add::before {
+    content: "\ea25";
+}
+
+.icon-ticket::before {
+    content: "\ea45";
+}

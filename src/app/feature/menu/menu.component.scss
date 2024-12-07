@@ -1,0 +1,39 @@
+@import "src/styles/variables";
+
+section {
+    margin: 70px 0 100px;
+
+    @include md {
+        margin: 30px 0 50px;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+
+            a {
+                font-size: 12px;
+                color: rgba(#fefefe, 0.6);
+                margin-bottom: 12px;
+                text-decoration: none;
+
+                @include useCaps;
+
+                &.main {
+                    font-size: 16px;
+                    color: #ffffff;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

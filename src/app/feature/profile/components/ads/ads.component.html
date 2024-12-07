@@ -1,0 +1,14 @@
+<div class="ads" *ngIf="data">
+    <div class="content">
+        <h3>{{data.title}}</h3>
+        <p>{{data.text}}</p>
+        <a [attr.href]="data.link">
+            <span>აქტივაცია</span>
+            <i class="icon icon-arrow-right"></i>
+        </a>
+    </div>
+    <figure>
+        <img src="{{storage + data.image}}" alt="{{data.title}}" />
+    </figure>
+    <i class="icon icon-close" (click)="close()"></i>
+</div>

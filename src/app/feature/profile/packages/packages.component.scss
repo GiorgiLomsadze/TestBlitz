@@ -1,0 +1,90 @@
+@import "src/styles/variables";
+
+section {
+    padding: 0 30px 90px;
+
+    @include md {
+        padding: 0 20px 70px;
+    }
+
+    @include sm {
+        padding: 0 15px 70px;
+    }
+
+    .block {
+        background-color: rgba(#0a6b98, 0.6);
+        border-radius: 10px;
+        padding: 40px 50px 60px;
+        margin-bottom: 30px;
+
+        @include md {
+            padding: 20px 20px 60px;
+        }
+
+        @include sm {
+            padding: 30px 20px 35px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 20px;
+
+            @include useCaps;
+
+            @include md {
+                margin-bottom: 40px;
+            }
+
+            @include sm {
+                margin-bottom: 30px;
+            }
+        }
+
+        .package {
+            margin-bottom: 30px;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+
+            h4 {
+                display: flex;
+                align-items: center;
+                font-size: 14px;
+                color: #ffffff;
+                margin-bottom: 30px;
+
+                @include useCaps;
+
+                @include md {
+                    margin-bottom: 20px;
+                }
+
+                i {
+                    margin-right: 10px;
+                    font-size: 20px;
+                }
+            }
+
+            .products {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-gap: 20px;
+
+                @include lg {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+
+                @include md {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                @include sm {
+                    grid-template-columns: repeat(1, 1fr);
+                }
+            }
+        }
+    }
+}

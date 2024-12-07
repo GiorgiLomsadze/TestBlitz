@@ -1,0 +1,62 @@
+<section class="container">
+    <h1>{{"ონლაინ შეკვეთა" | translate}}</h1>
+    <div class="steps">
+        <span class="active">
+            <i class="icon icon-check"></i>
+        </span>
+        <i class="line"></i>
+        <span [ngClass]="{active: step === 'code' || step === 'success' || step === 'failure'}">
+            <i class="icon icon-check"></i>
+        </span>
+        <i class="line"></i>
+        <span [ngClass]="{active: step === 'success' || step === 'failure'}">
+            <i class="icon icon-check"></i>
+        </span>
+    </div>
+    <div class="block" *ngIf="isFormStep" [ngClass]="{small: step === 'code'}">
+        <h3>{{"მოგვაწოდეთ თქვენი საკონტაქტო ინფორმაცია და ჩვენ დაგიკავშირდებით" | translate}}</h3>
+        <div class="form" [formGroup]="form">
+            <ng-container *ngIf="step === null" formGroupName="base">
+                <mat-form-field appearance="fill">
+                    <mat-label>{{"სახელი..." | translate}}</mat-label>
+                    <input matInput formControlName="firstName">
+                    <mat-error>{{getErrorMessage('base.firstName') | translate}}</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>{{"გვარი..." | translate}}</mat-label>
+                    <input matInput formControlName="lastName">
+                    <mat-error>{{getErrorMessage('base.lastName') | translate}}</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>{{"პირადი ნომერი..." | translate}}</mat-label>
+                    <input matInput formControlName="personalNumber" [cleave]="{numericOnly: true, blocks: [11]}">
+                    <mat-error>{{getErrorMessage('base.personalNumber') | translate}}</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>{{"მობილურის ნომერი..." | translate}}</mat-label>
+                    <input matInput formControlName="phoneNumber" [cleave]="{numericOnly: true, blocks: [3, 2, 2, 2]}">
+                    <mat-error>{{getErrorMessage('base.phoneNumber') | translate}}</mat-error>
+                </mat-form-field>
+            </ng-container>
+            <ng-container formGroupName="confirm">
+                <mat-form-field appearance="fill" *ngIf="step === 'code'">
+                    <mat-label>SMS კოდი...</mat-label>
+                    <input matInput formControlName="code" [cleave]="{numericOnly: true, blocks: [4]}">
+                    <mat-error>{{getErrorMessage('confirm.code') | translate}}</mat-error>
+                </mat-form-field>
+            </ng-container>
+            <div class="actions">
+                <button class="back" (click)="back()">
+                    <i class="icon icon-arrow-left"></i>
+                </button>
+                <button class="next" (click)="next()">{{"გაგრძელება" | translate}}</button>
+            </div>
+        </div>
+    </div>
+    <app-feed-back *ngIf="step === 'success'">
+        თქვენ წარმატებით განახორციელეთ შეკვეთა, <br> ჩვენ მალე დაგიკავშირდებით!
+    </app-feed-back>
+    <app-feed-back [type]="step" *ngIf="step === 'failure'">
+        დაფიქსირდა შეცდომა!<br> {{error}}
+    </app-feed-back>
+</section>

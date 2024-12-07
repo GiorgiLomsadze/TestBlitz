@@ -1,0 +1,20 @@
+<section class="container">
+    <h1>{{title | translate}}</h1>
+    <div class="list">
+        <div class="item" *ngFor="let item of news">
+            <a routerLink="{{item.id}}" class="news">
+                <figure>
+                    <img src="{{storage + item.image}}" alt="{{item.tilte}}">
+                </figure>
+                <div class="content">
+                    <span class="date">{{item.date | date:'dd MMMM, yyyy'}}</span>
+                    <h3>{{item.tilte | translate}}</h3>
+                    <p>{{item.text | trim | translate}}</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <button *ngIf="isMore" [ngClass]="{disabled: loading}" class="more" (click)="loadMore()">
+        {{"მეტი" | translate }} {{ typeSingle | translate }}
+    </button>
+</section>

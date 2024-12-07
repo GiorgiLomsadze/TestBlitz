@@ -1,0 +1,51 @@
+<footer>
+    <div class="sitemap">
+        <div class="container">
+            <div class="footer-item" *ngFor="let item of footerMenu.navigations">
+                <span class="list-title">{{item.title | translate}}</span>
+                <a class="list-item" *ngFor="let link of item.list" [routerLink]="link.url">{{link.title | translate}}</a>
+            </div>
+            <div class="footer-item">
+                <a class="list-item active" routerLink="/about">{{"კომპანიის შესახებ" | translate}}</a>
+                <a class="list-item active" routerLink="/contact">{{"კონტაქტი" | translate}}</a>
+                <span class="list-item contact-info">
+                    {{"ცელი ხაზი:" | translate}}<a href="tel:{{options.phone1}}">{{options.phone1}}</a>{{"ან" | translate}}<a
+                        href="tel:{{options.phone2}}">{{options.phone2}}</a>
+                </span>
+            </div>
+            <div class="footer-item list-item subscribe-wrap">
+                <h3>{{"გამოიწერეთ ჩვენი სიახლეები" | translate}}</h3>
+                <div class="subscribe" *ngIf="!isSuccess" [ngClass]="{
+                    error: email.invalid && (email.touched || email.dirty)
+                }">
+                    <input type="email" [formControl]="email" [placeholder]="'ჩაწერეთ თქვენი ელ.ფოსტა...' | translate">
+                    <button (click)="submit()">
+                        <i class="icon icon-arrow-right"></i>
+                    </button>
+                </div>
+                <span *ngIf="isSuccess" class="success">სიახლეები გამოწერილია!</span>
+            </div>
+        </div>
+    </div>
+    <div class="info">
+        <div class="container">
+            <a class="logo" routerLink="/">
+                <i class="icon icon-logo"></i>
+            </a>
+            <div class="social">
+                <a *ngIf="options.twitter" [href]="options.twitter" target="_blank">
+                    <i class="icon icon-twitter"></i>
+                </a>
+                <a *ngIf="options.linkedin" [href]="options.linkedin" target="_blank">
+                    <i class="icon icon-linkdin"></i>
+                </a>
+                <a *ngIf="options.facebook" [href]="options.facebook" target="_blank">
+                    <i class="icon icon-facebook"></i>
+                </a>
+            </div>
+            <span class="copyright">
+                {{"CGC ოფიციალური ვებგვერდი © 2020 ყველა უფლება დაცულია" | translate}}
+            </span>
+        </div>
+    </div>
+</footer>

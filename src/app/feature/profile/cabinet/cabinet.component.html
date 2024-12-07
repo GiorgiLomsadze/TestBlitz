@@ -1,0 +1,55 @@
+<section>
+  <app-ads *ngIf="!isAdsClose" [data]="ads"></app-ads>
+  <div class="block balance">
+    <h3>{{"აბონენტის ბალანსი" | translate}}</h3>
+    <div class="content">
+      <span class="price">
+        {{ info?.balance }}
+        <i class="icon icon-gel"></i>
+      </span>
+      <a href="{{ balance }}">
+        <span>{{"შევსება" | translate}}</span>
+        <i class="icon icon-close"></i>
+      </a>
+    </div>
+  </div>
+  <div class="block packages">
+    <div class="header">
+      <h3>{{"შენი პაკეტები" | translate}}</h3>
+      <div
+        *ngIf="info?.packages.length > 1"
+        class="select"
+        (clickOutside)="closeSelect('isOpen')"
+        [ngClass]="{ open: isOpen }"
+      >
+        <span class="current" (click)="isOpen = !isOpen">
+          <span>{{ info?.packages[0].address }}</span>
+          <i class="icon icon-arrow-down"></i>
+        </span>
+        <div class="options" [ngClass]="{ active: isOpen }">
+          <span
+            *ngFor="let item of info?.packages; let i = index"
+            (click)="setAddress(i)"
+            [ngClass]="{ active: activeAddress === i }"
+          >
+            {{ item.address }}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <div
+        class="item"
+        *ngFor="let product of info?.packages[activeAddress].list"
+      >
+        <div class="inner">
+          <div class="info">
+            <i class="icon icon-{{ getIcon(product.type.id) }}"></i>
+            <span>{{ categoryName(product) }}</span>
+          </div>
+          <app-package [data]="product"></app-package>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

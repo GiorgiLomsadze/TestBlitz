@@ -1,0 +1,17 @@
+{
+    "errorCode": {
+        "-20": "დაფიქსირდა შეცდომა, სცადეთ მოგვიანებით"
+    },
+    "errorValidation": {
+        "validation.required": "ველი სავალდებულოა",
+        "validation.numeric": "ველი უნდა იყოს ციფრი",
+        "validation.regex": "ფორმატი არასწორია",
+        "validation.unique": "მომხმარებელი უკვე არსებობს",
+        "validation.retryLimit": "მცდელობის ლიმიტი ამოიწურა",
+        "validation.invalidUser": "მონაცემები არასწორია",
+        "validation.invalidCode": "კოდი არასწორია",
+        "validation.usedCode": "კოდი უკვე გამოყენებულია",
+        "validation.smsFail": "კოდი ვერ გაიგზავნა",
+        "validation.confirmed": "პაროლი არ ემთხვევა"
+    }
+}

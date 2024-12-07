@@ -1,0 +1,30 @@
+<section class="container" *ngIf="data">
+    <div class="header">
+        <span class="subTitle">{{data.subTitle | translate}}</span>
+        <h1>{{data.title | translate}}</h1>
+        <span class="info">{{data.text | translate}}</span>
+        <a href="{{data.link}}">
+            <span>{{"გააქტიურება" | translate}}</span>
+            <i class="icon icon-arrow-right"></i>
+        </a>
+    </div>
+    <div class="offers">
+        <div class="offer" *ngFor="let item of data.products">
+            <div class="header">
+                <span class="subTitle">{{item.title | translate}}</span>
+                <h3>{{item.tvInfo | translate}}</h3>
+                <span class="info">{{item.internetSpeed | translate}}</span>
+            </div>
+            <div class="footer">
+                <span class="price">
+                    <span>{{item.price}}</span>
+                    <i class="icon icon-gel"></i>
+                </span>
+                <a class="order" [routerLink]="['/', 'order', item.type.slug, item.id]">
+                    <!-- <span>შეძენა</span> -->
+                    <i class="icon icon-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

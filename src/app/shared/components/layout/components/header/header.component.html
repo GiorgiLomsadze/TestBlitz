@@ -1,0 +1,59 @@
+<header [ngClass]="{ container: !isProfile, profile: isProfile }">
+  <a class="logo" routerLink="/" [ngClass]="{ profile: isProfile }">
+    <i class="icon icon-logo"></i>
+  </a>
+  <h3 class="title" *ngIf="isProfile">{{"პირადი კაბინეტი" | translate}}</h3>
+  <div class="navigation">
+    <nav>
+      <a
+        *ngFor="let item of menu"
+        [ngClass]="{ active: urlStartWith(item?.slug) }"
+        routerLink="/product/{{ item?.slug }}/{{ item.categories[0]?.slug }}"
+        >{{ item.name | translate }}</a
+      >
+    </nav>
+
+    <select class="languages" [(ngModel)]="selectedLanguage" (change)="changeLanguage($event.target.value)">
+      <option value="ge">Georgian</option>
+      <option value="en">English</option>
+    </select>    
+
+    <div class="auth" *ngIf="!user">
+      <a class="login" routerLink="/login">
+        <span>{{"შესვლა" | translate}}</span>
+        <i class="icon icon-login"></i>
+      </a>
+    </div>
+    <a routerLink="/profile/cabinet" class="user" *ngIf="user">
+      <i class="icon icon-person"></i>
+      <span>{{ user }}</span>
+    </a>
+    <a routerLink="/menu" class="menu-toggle">
+      <i class="icon icon-list"></i>
+    </a>
+  </div>
+</header>
+<div class="profile-nav" *ngIf="isProfile">
+  <nav>
+    <a routerLink="profile/cabinet" routerLinkActive="active">
+      <i class="icon icon-home"></i>
+      <span>პირადი კაბინეტი</span>
+    </a>
+    <a routerLink="profile/offers" routerLinkActive="active">
+      <i class="icon icon-gift"></i>
+      <span>უახლესი აქციები</span>
+    </a>
+    <a routerLink="profile/packages" routerLinkActive="active">
+      <i class="icon icon-plus-square"></i>
+      <span>ყველა პაკეტი</span>
+    </a>
+    <a routerLink="profile/options" routerLinkActive="active">
+      <i class="icon icon-settings"></i>
+      <span>პარამეტრები</span>
+    </a>
+    <a class="logout" (click)="logout()">
+      <i class="icon icon-power"></i>
+      <span>გასვლა</span>
+    </a>
+  </nav>
+</div>

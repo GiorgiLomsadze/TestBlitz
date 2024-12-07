@@ -1,0 +1,32 @@
+<div class="package" *ngIf="data" [ngClass]="{
+        normal: !isCabinet, phone: (productTypes.telephone === data.type.id) || (productTypes.offer === data.type.id),
+        tv: (productTypes.tv === data.type.id) || (productTypes.double === data.type.id),
+        active: isActive
+    }">
+    <h3 *ngIf="data.type.id !== productTypes.tv && data.type.id !== productTypes.double">
+        {{data.type.id === productTypes.internet ? data.internetSpeed : data.title}}
+    </h3>
+    <span class="price-wrap"
+        *ngIf="(data.type.id === productTypes.tv || data.type.id === productTypes.double) && !isCabinet">
+        <span class="price">{{data.price}}<i class="icon icon-gel"></i></span>
+        <span class="month">თვე</span>
+    </span>
+    <button class="channels" (click)="openModal()"
+        *ngIf="(data.type.id === productTypes.tv || data.type.id === productTypes.double) && isCabinet">
+        არხები
+    </button>
+    <hr>
+    <span class="price-wrap"
+        *ngIf="(data.type.id !== productTypes.tv && data.type.id !== productTypes.double) || isCabinet">
+        <span class="price">{{data.price}}<i class="icon icon-gel"></i></span>
+        <span class="month">თვე</span>
+    </span>
+    <button class="channels"
+        *ngIf="(data.type.id === productTypes.tv || data.type.id === productTypes.double) && !isCabinet"
+        (click)="openModal()">არხები</button>
+    <a *ngIf="!isCabinet" [routerLink]="['/', 'order', data.type.slug, data.id]"
+        class="order">{{isActive ? 'მიმდინარე პაკეტი' : 'შეძენა'}}</a>
+    <span class="status" *ngIf="isCabinet">
+        {{data.status === 0 ? 'აქტიური' : 'გათიშული'}}
+    </span>
+</div>

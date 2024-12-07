@@ -1,0 +1,17 @@
+<section>
+    <app-ads *ngIf="!isAdsClose" [data]="ads"></app-ads>
+    <div class="offer" *ngFor="let offer of offers">
+        <figure>
+            <img src="{{storage + offer.image}}" alt="{{offer.tilte}}" />
+        </figure>
+        <div class="content">
+            <span>{{offer.date | date:'dd MMMM, yyyy'}}</span>
+            <h3>{{offer.tilte | translate}}</h3>
+            <p>{{offer.text | translate}}</p>
+            <a class="more" routerLink="/offer/{{offer.id}}">
+                {{"ვრცლად" | translate}}
+                <i class="icon icon-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>

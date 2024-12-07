@@ -1,0 +1,41 @@
+<section class="container">
+    <h1>რეგისტრაცია</h1>
+    <div class="block" *ngIf="!isSuccess">
+        <span class="icon-wrap">
+            <i class="icon icon-user"></i>
+        </span>
+        <h3>{{"რეგისტრაციისთვის მიუთითე აბონენტის ნომერი" | translate}}</h3>
+        <div class="form" [formGroup]="form">
+            <mat-form-field appearance="fill">
+                <mat-label>{{"აბონენტის ნომერი..." | translate}}</mat-label>
+                <input matInput formControlName="clientId" type="number" autocomplete="off">
+                <button matSuffix class="resend" (click)="getCode()" [ngClass]="{disabled: isResendDisabled}">
+                    <span class="bg" [@timer]="state" (@timer.done)="animateDone($event)"></span>
+                    <span class="text">{{"კოდის მიღება" | translate}}</span>
+                </button>
+                <mat-error>{{getErrorMessage('clientId') | translate}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>{{"აქტივაციის კოდი..." | translate}}</mat-label>
+                <input matInput formControlName="code" autocomplete="off" [cleave]="{numericOnly: true, blocks: [4]}">
+                <mat-error>{{getErrorMessage('code') | translate}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>{{"პაროლი..." | translate}}</mat-label>
+                <input matInput autocomplete="off" type="password" formControlName="password">
+                <mat-error>{{getErrorMessage('password') | translate}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>{{"გაიმეორე პაროლი..." | translate}}</mat-label>
+                <input matInput autocomplete="off" type="password" formControlName="password_confirmation">
+                <mat-error>{{getErrorMessage('password_confirmation') | translate}}</mat-error>
+            </mat-form-field>
+            <button class="submit" (click)="submit()">{{"რეგისტრაცია" | translate}}</button>
+        </div>
+        <span class="info">{{"უკვე დარეგისტრირებული ხარ?" | translate}}</span>
+        <a routerLink="/login" class="login">{{"შესვლა" | translate}}</a>
+    </div>
+    <app-feed-back *ngIf="isSuccess">
+        {{"თქვენ დარეგისტრირდით წარმატებით!" | translate}}
+    </app-feed-back>
+</section>

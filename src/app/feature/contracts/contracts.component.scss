@@ -1,0 +1,332 @@
+@import "src/styles/variables";
+
+section {
+  display: flex;
+  flex-direction: column;
+  margin: 70px 0 100px;
+
+  h1 {
+    font-size: 36px;
+    color: #ffffff;
+    margin-bottom: 40px;
+
+    @include useCaps;
+
+    @include lg {
+      margin-bottom: 80px;
+    }
+
+    @include md {
+      margin-bottom: 35px;
+      font-size: 24px;
+    }
+  }
+
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 -15px;
+
+    .item {
+      width: 25%;
+      flex-shrink: 0;
+      padding: 0 15px;
+      box-sizing: border-box;
+      margin-bottom: 30px;
+
+      @include xl {
+        width: (100% / 3);
+      }
+
+      @include md {
+        width: 100%;
+      }
+    }
+  }
+
+  .document {
+    border-radius: 10px;
+    background-color: rgba(#0a6b98, 0.7);
+    padding: 30px 0 0 35px;
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: 65px auto;
+    height: 100%;
+    box-sizing: border-box;
+
+    @include sm {
+      padding: 20px 0 0 20px;
+    }
+
+    i.ic-document {
+      display: block;
+      width: 65px;
+      height: 72px;
+      display: flex;
+      flex-shrink: 0;
+
+      &::after {
+        content: "";
+        background-image: url(/assets/svg/document.svg);
+        display: block;
+        flex: 1;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      h3 {
+        font-size: 12px;
+        color: #ffffff;
+        line-height: 20px;
+        padding-right: 20px;
+        margin-top: 0;
+
+        @include useCaps;
+
+        @include sm {
+          margin-bottom: 5px;
+        }
+      }
+
+      div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .date {
+          font-size: 12px;
+          color: #3ca1d2;
+
+          @include useCaps;
+
+          @include sm {
+            transform: translateY(-8px);
+          }
+        }
+
+        a {
+          font-size: 20px;
+          line-height: 0;
+          text-decoration: none;
+          background-color: #ffd308;
+          color: #09425f;
+          border-radius: 10px;
+          width: 80px;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  .block {
+    position: relative;
+    width: 800px;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 20px 60px;
+    background-color: rgba(#0a6b98, 0.6);
+    align-items: center;
+    border-radius: 10px;
+    box-sizing: border-box;
+
+    @include md {
+      width: 100%;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: 500px;
+      border-radius: 6px;
+      border: 2px #ffd308 solid;
+      box-sizing: border-box;
+      left: -2px;
+      top: 50%;
+      transform: translateY(-50%);
+
+      @include sm {
+        display: none;
+      }
+    }
+
+    .icon-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80px;
+      height: 80px;
+      background-color: #09425f;
+      color: #ffd308;
+      border-radius: 50%;
+      margin-bottom: 30px;
+
+      @include md {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 40px;
+      }
+
+      @include sm {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 30px;
+      }
+
+      i {
+        font-size: 26px;
+        line-height: 0;
+
+        @include md {
+          font-size: 22px;
+        }
+
+        @include sm {
+          font-size: 18px;
+        }
+      }
+    }
+
+    h3 {
+      color: #ffffff;
+      font-size: 16px;
+      margin-bottom: 50px;
+      line-height: 32px;
+      text-align: center;
+
+      @include useCaps;
+
+      @include md {
+        margin-bottom: 40px;
+      }
+
+      @include sm {
+        font-size: 12px;
+        line-height: 26px;
+        margin-bottom: 20px;
+      }
+    }
+
+    .form {
+      width: 390px;
+
+      @include sm {
+        width: 100%;
+      }
+    }
+
+    mat-form-field {
+      width: 100%;
+    }
+
+    .resend {
+      cursor: pointer;
+      position: relative;
+      height: 42px;
+      background-color: rgba(#ffd308, 0.4);
+      border: 1px solid #ffd308;
+      border-radius: 0 10px 0 10px;
+      padding: 0 20px;
+      outline: none;
+      font-size: 12px;
+      color: #09425f;
+      -webkit-text-stroke: 1px #09425f;
+      transform: translateY(-9px);
+      box-sizing: border-box;
+      overflow: hidden;
+
+      @include useCaps;
+
+      &.disabled {
+        pointer-events: none;
+      }
+
+      span.text {
+        position: relative;
+        z-index: 2;
+      }
+
+      span.bg {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: #ffd308;
+        left: 0;
+        top: 0;
+        border-radius: 0 10px 0 10px;
+        transition: background 0.2s;
+      }
+
+      &:hover span.bg {
+        background-color: darken(#ffd308, 8);
+      }
+    }
+
+    .submit {
+      cursor: pointer;
+      margin-top: 20px;
+      margin-bottom: 25px;
+      width: 100%;
+      height: 60px;
+      background-color: #ffd308;
+      border-radius: 0 10px 0 10px;
+      padding: 0 20px;
+      outline: none;
+      font-size: 14px;
+      color: #09425f;
+      -webkit-text-stroke: 1px #09425f;
+      box-sizing: border-box;
+      outline: none;
+      border: none;
+      box-shadow: 0 2px 10px rgba(#000000, 0.15);
+      transition: background 0.2s;
+
+      &:hover {
+        background-color: darken(#ffd308, 8);
+      }
+
+      @include useCaps;
+
+      @include md {
+        margin-top: 10px;
+      }
+
+      @include sm {
+        margin-top: 20px;
+      }
+    }
+
+    .info {
+      color: #3da5d8;
+      font-size: 14px;
+      line-height: 19px;
+      margin-bottom: 10px;
+      display: inline-block;
+
+      @include sm {
+        margin-bottom: 15px;
+      }
+    }
+
+    .login {
+      color: #ffffff;
+      font-size: 14px;
+      line-height: 19px;
+      text-decoration: none;
+
+      @include useCaps;
+    }
+  }
+}

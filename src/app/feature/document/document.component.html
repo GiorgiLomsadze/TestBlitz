@@ -1,0 +1,19 @@
+<section class="container">
+  <h1>{{ title | translate }}</h1>
+  <div class="list">
+    <div class="item" *ngFor="let item of documents">
+      <div class="document">
+        <i class="ic-document"></i>
+        <div class="content">
+          <h3 class="title">{{ item.name | translate }}</h3>
+          <div>
+            <span class="date">{{ item.date | date: "dd.MM.yyyy" }}</span>
+            <a href="{{ storage + item.file }}" download="{{ item.name }}">
+              <i class="icon icon-donwload"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

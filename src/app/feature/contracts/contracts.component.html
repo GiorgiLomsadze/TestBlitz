@@ -1,0 +1,79 @@
+<section class="container">
+
+  <section class="container">
+    <div class="list">
+      <div class="item" *ngFor="let item of documents">
+        <div class="document">
+          <i class="ic-document"></i>
+          <div class="content">
+            <h3 class="title">{{ item.name | translate }}</h3>
+            <div>
+              <span class="date">{{ item.date | date: "dd.MM.yyyy" }}</span>
+              <a href="{{ storage + item.file }}" download="{{ item.name }}">
+                <i class="icon icon-donwload"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section *ngIf="findSubscriber" class="container">
+    <div class="block">
+        <span class="icon-wrap">
+            <i class="icon icon-user"></i>
+        </span>
+      <h3>{{"ხელშეკრულების დადასტურებისათვის შეიყვანეთ აბონენტის ნომერი" | translate}}</h3>
+      <div class="form" [formGroup]="form">
+        <mat-form-field appearance="fill">
+          <mat-label>{{"აბონენტის ნომერი..." | translate}}</mat-label>
+          <input matInput formControlName="clientId" type="number" autocomplete="off">
+          <mat-error *ngIf="showErrorClientId">{{ errorMessageClientId }}</mat-error>
+        </mat-form-field>
+        <br><br>
+        <img src="{{getLinkPicture()}}" alt="my-captcha" style="margin-right: 50px">
+        <button matSuffix class="resend" (click)="cantSeeCode()">
+          <span class="bg"></span>
+          <span class="text">{{"ვერ ვხედავ კოდს" | translate}}</span>
+        </button>
+        <br><br>
+        <mat-form-field appearance="fill">
+          <mat-label>{{"სურათზე ნაჩვენები კოდი..." | translate}}</mat-label>
+          <input matInput formControlName="captchaCode" type="number" autocomplete="off">
+          <mat-error *ngIf="showErrorCaptha">{{ errorMessageCaptha }}</mat-error>
+        </mat-form-field>
+
+        <button class="submit" (click)="findSubscriberClick()">{{"შემოწმება" | translate}}</button>
+      </div>
+    </div>
+
+  </section>
+
+  <section *ngIf="!findSubscriber" class="container">
+    <div class="block" *ngIf="!isSuccess">
+        <span class="icon-wrap">
+            <i class="icon icon-user"></i>
+        </span>
+      <h3>შეიყვანეთ მიღებული კოდი</h3>
+
+      <div class="form" [formGroup]="form">
+        <mat-form-field appearance="fill">
+          <mat-label>კოდი...</mat-label>
+          <input matInput formControlName="receivedCode" type="number" autocomplete="off">
+
+        </mat-form-field>
+        <h3>სმს გაიგზავნა ნომერზე: {{this.smsNumber}}</h3>
+
+        <button class="submit" (click)="submitCode()">დადასტურება</button>
+      </div>
+    </div>
+    <app-feed-back *ngIf="isSuccess">
+      თქვენ წარმატებით დაადასტურეთ ხელშეკრულება!
+    </app-feed-back>
+
+
+  </section>
+
+</section>

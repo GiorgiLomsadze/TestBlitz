@@ -1,0 +1,38 @@
+<section>
+    <div class="block" *ngIf="!isSuccess">
+        <h3>{{ "უსაფრთხოება" | translate}}</h3>
+        <h4>
+            <i class="icon icon-shield"></i>
+            <span>{{ "პაროლის შეცვლა" | translate}}</span>
+        </h4>
+        <div class="form-wrap">
+            <div class="wrap">
+                <div class="hint">
+                    <i class="icon icon-alert"></i>
+                    <span>{{ "პაროლი უნდა შედგებოდეს 6 სიმბოლოსგან" | translate}}</span>
+                </div>
+                <div class="form" [formGroup]="form">
+                    <mat-form-field appearance="fill">
+                        <mat-label>{{ "მიმდინარე პაროლი" | translate}}</mat-label>
+                        <input matInput autocomplete="off" type="password" formControlName="current">
+                        <mat-error>{{getErrorMessage('current') | translate}}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>{{ "ახალი პაროლი" | translate}}</mat-label>
+                        <input matInput autocomplete="off" type="password" formControlName="password">
+                        <mat-error>{{getErrorMessage('password') | translate}}</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>{{ "გაიმეორეთ პაროლი" | translate}}</mat-label>
+                        <input matInput autocomplete="off" type="password" formControlName="password_confirmation">
+                        <mat-error>{{getErrorMessage('password_confirmation') | translate}}</mat-error>
+                    </mat-form-field>
+                </div>
+                <button class="submit" (click)="submit()">{{ "ცვლილების დამახსოვრება" | translate }}</button>
+            </div>
+        </div>
+    </div>
+    <app-feed-back *ngIf="isSuccess">
+        {{ "პაროლი შეიცვალა წარმატებით!" | translate}}
+    </app-feed-back>
+</section>

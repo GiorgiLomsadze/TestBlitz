@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ka">
+
+<head>
+  <meta charset="utf-8">
+  <title>CGC</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canorical" href="/">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-T5L65WP');</script>
+  <!-- End Google Tag Manager -->
+
+</head>
+
+<body>
+  <app-root></app-root>
+
+  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        xfbml: true,
+        version: 'v9.0'
+      });
+    };
+
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your Chat Plugin code -->
+  <div class="fb-customerchat" attribution=setup_tool page_id="278242642309284" theme_color="#ffc300"
+    logged_in_greeting="გამარჯობა, რით შემიძლია დაგეხმაროთ ? "
+    logged_out_greeting="გამარჯობა, რით შემიძლია დაგეხმაროთ ? ">
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+<section class="container">
+  <nav>
+    <div *ngFor="let item of menu">
+      <a class="main" [routerLink]="['/product', item.slug]">
+        {{ item.name | translate }} 
+      </a>
+      <a
+        *ngFor="let category of item.categories"
+        class="inner"
+        [routerLink]="['/product', item.slug, category.slug]"
+      >
+        {{ category.name | translate }} 
+      </a>
+    </div>
+  </nav>
+</section>

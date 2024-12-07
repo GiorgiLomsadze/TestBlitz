@@ -1,0 +1,29 @@
+<section>
+  <div class="block" *ngFor="let package of packages">
+    <h3>{{ package.name | translate }}</h3>
+    <div
+      class="package"
+      *ngFor="
+        let category of !(package.id === productTypes.double)
+          ? package.categories
+          : doubleCategory
+      "
+    >
+      <ng-container *ngIf="category.products.length">
+        <h4>
+          <i class="icon icon-{{ getIcon(package.id) }}"></i>
+          <span>{{ category.name | translate }}</span>
+        </h4>
+        <div class="products">
+          <app-package
+            *ngFor="let product of category.products"
+            [data]="product"
+            [isActive]="userProducts.has(product.id)"
+            [isCabinet]="false"
+          >
+          </app-package>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</section>

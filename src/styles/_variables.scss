@@ -1,0 +1,27 @@
+@mixin useCaps {
+    font-family: "CGC-Caps", sans-serif;
+}
+
+@mixin sm {
+    @media (max-width: 576px) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media (max-width: 1040px) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media (max-width: 1400px) {
+        @content;
+    }
+}
+
+@mixin xl {
+    @media (max-width: 1700px) {
+        @content;
+    }
+}

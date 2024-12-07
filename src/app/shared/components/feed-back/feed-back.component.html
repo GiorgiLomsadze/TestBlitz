@@ -1,0 +1,10 @@
+<div class="block" [ngClass]="type">
+    <span class="icon-wrap">
+        <i class="icon icon-check" *ngIf="type === 'success'"></i>
+        <i class="icon icon-close" *ngIf="type === 'failure'"></i>
+    </span>
+    <h3>
+        <ng-content></ng-content>
+    </h3>
+    <button routerLink="/" class="submit">მთავარზე დაბრუნება</button>
+</div>
